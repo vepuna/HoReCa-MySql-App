@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.6.33712.159
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HoReCa", "HoReCa\HoReCa.csproj", "{F1985526-D64F-4304-BD94-CA4E1185454B}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F1985526-D64F-4304-BD94-CA4E1185454B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F1985526-D64F-4304-BD94-CA4E1185454B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F1985526-D64F-4304-BD94-CA4E1185454B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F1985526-D64F-4304-BD94-CA4E1185454B}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {18F6E16D-07F3-414E-8C33-47A346EBA0A5}
+	EndGlobalSection
+EndGlobal
