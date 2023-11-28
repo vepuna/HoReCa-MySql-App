@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace HoReCa.Properties
+namespace Crud_mysql.Properties
 {
 
 
