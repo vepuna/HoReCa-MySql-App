@@ -9,7 +9,7 @@ using System.Windows.Forms;
 
 namespace Crud_mysql
 {
-    internal class DbStudent
+    internal class TbMenu
     {
         public static MySqlConnection GetConnection()
         {
@@ -21,19 +21,19 @@ namespace Crud_mysql
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error with Connection", ex.Message,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error with Connection", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return connection;
         }
 
-        public static void AddStudent(products std)
+        public static void AddStudent(menu std)
         {
-            string sql = "INSERT INTO products VALUES (NULL, @ProductName, @ProductQuantity)";
+            string sql = "INSERT INTO dishes VALUES (NULL, @DishesName, @DishesPrice)";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Add("@ProductName", MySqlDbType.VarChar).Value = std.Name;
-            cmd.Parameters.Add("@ProductQuantity", MySqlDbType.VarChar).Value = std.Quantity;
+            cmd.Parameters.Add("@DishesName", MySqlDbType.VarChar).Value = std.Name;
+            cmd.Parameters.Add("@DishesPrice", MySqlDbType.VarChar).Value = std.Price;
 
             try
             {
@@ -47,15 +47,15 @@ namespace Crud_mysql
             connection.Close();
         }
 
-        public static void UpdateStudent(products std, string id)
+        public static void UpdateStudent(menu std, string id)
         {
-            string sql = "UPDATE products SET Name = @ProductName, Quantity = @ProductQuantity  WHERE ProductID = @ProductsID";
+            string sql = "UPDATE dishes SET DishName = @DishesName, Price = @DishesPrice  WHERE DishID = @DishID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Add("@ProductName", MySqlDbType.VarChar).Value = std.Name;
-            cmd.Parameters.Add("@ProductQuantity", MySqlDbType.VarChar).Value = std.Quantity;
-            cmd.Parameters.Add("@ProductsID", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@DishesName", MySqlDbType.VarChar).Value = std.Name;
+            cmd.Parameters.Add("@DishesPrice", MySqlDbType.VarChar).Value = std.Price;
+            cmd.Parameters.Add("@DishID", MySqlDbType.VarChar).Value = id;
             try
             {
                 cmd.ExecuteNonQuery();
@@ -67,14 +67,14 @@ namespace Crud_mysql
             }
             connection.Close();
         }
-        
+
         public static void DeleteStudent(string id)
         {
-            string sql = "DELETE FROM products WHERE ProductID = @ProductsID";
+            string sql = "DELETE FROM dishes WHERE DishID = @DishID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
-            cmd.Parameters.Add("@ProductsID", MySqlDbType.VarChar).Value = id;
+            cmd.Parameters.Add("@DishID", MySqlDbType.VarChar).Value = id;
 
             try
             {

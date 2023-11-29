@@ -56,9 +56,9 @@
             this.lbltext.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.lbltext.Location = new System.Drawing.Point(12, 39);
             this.lbltext.Name = "lbltext";
-            this.lbltext.Size = new System.Drawing.Size(115, 25);
+            this.lbltext.Size = new System.Drawing.Size(78, 25);
             this.lbltext.TabIndex = 0;
-            this.lbltext.Text = "Add Student";
+            this.lbltext.Text = "HoReCa";
             // 
             // panel2
             // 

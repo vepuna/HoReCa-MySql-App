@@ -13,7 +13,7 @@ namespace Crud_mysql
     public partial class FormInfo : Form
     {
         private readonly FormStudent _parent;
-        public string id, name, quantity;
+        public string id, name, quantity, price;
 
         public FormInfo(FormStudent parent)
         {
@@ -23,18 +23,36 @@ namespace Crud_mysql
 
         public void SaveInfo()
         {
-            lbltext.Text = "Добавить Продукты";
-            btnSave.Text = "Save";
+            lbltext.Text = "Добавить в Склад";
+            btnSave.Text = "Сохранить";
         }
 
         public void UpdateInfo()
         {
-            lbltext.Text = "Update";
+            lbltext.Text = "Обновить Товар";
             btnSave.Text = "Update";
             txtName.Text = name;
             txtQuantity.Text = quantity;
-
         }
+        /// <summary>
+        /// Menu
+        /// </summary>
+        public void SaveInfoMenu()
+        {
+            lbltext.Text = "Сохранить в меню";
+            btnSave.Text = "Сохранить";
+            txtName.Text = name;
+            txtQuantity.Text = quantity;
+        }
+
+        public void UpdateInfoMenu()
+        {
+            lbltext.Text = "Update in Menu";
+            btnSave.Text = "Сохранить";
+            txtName.Text = name;
+            txtQuantity.Text = quantity;
+        }
+
 
         public void Clear()
         {
@@ -47,7 +65,7 @@ namespace Crud_mysql
         }
 
         private void txtQuantity_KeyPress(object sender, KeyPressEventArgs e)
-        {
+       {
             if (!char.IsDigit(e.KeyChar) && !char.IsControl(e.KeyChar))
             {
                 e.Handled = true;
@@ -71,20 +89,43 @@ namespace Crud_mysql
                 MessageBox.Show("Quantity reg  < 1");
                 return;
             }
-            if (btnSave.Text == "Save")
+
+
+            //////
+            if (lbltext.Text == "Добавить в Склад")
             {
                 products std = new products (txtName.Text.Trim(), txtQuantity.Text.Trim());
                 DbStudent.AddStudent(std);
                 Clear();
             }
-            if(btnSave.Text == "Update")
+            if(lbltext.Text == "Обновить Товар")
             {
                 products std = new products(txtName.Text.Trim(), txtQuantity.Text.Trim());
                 DbStudent.UpdateStudent(std, id);
             }
             _parent.Display();
 
+
+            //new menu
+            if (lbltext.Text == "Сохранить в меню")
+            {
+                menu std = new menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
+                TbMenu.AddStudent(std);
+                Clear();
+            }
+
+            //update menu
+            if (lbltext.Text == "Update in Menu")
+            {
+                menu std = new menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
+                TbMenu.UpdateStudent(std, id);
+                Clear();
+            }
+            _parent.DisplayMenu();
+
         }
+        ///////////////////////////////////////////////////////////////////////////////////////////////
+        
         
     }
 }

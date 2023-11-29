@@ -111,9 +111,11 @@
     <Compile Include="FormStudent.Designer.cs">
       <DependentUpon>FormStudent.cs</DependentUpon>
     </Compile>
+    <Compile Include="menu.cs" />
     <Compile Include="products.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TbMenu.cs" />
     <EmbeddedResource Include="FormInfo.resx">
       <DependentUpon>FormInfo.cs</DependentUpon>
     </EmbeddedResource>
