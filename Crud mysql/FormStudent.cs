@@ -178,6 +178,11 @@ namespace Crud_mysql
                 DisplayMenu();
                 
             }
+            if (e.TabPage == tabPage3)
+            {
+                TbDishIngredients.LoadDishes(comboBox1);
+                TbDishIngredients.LoadDataIntoDataGridView(tableDishIngrediets);
+            }
         }
 
         private void dataGridViewMenu_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -189,5 +194,34 @@ namespace Crud_mysql
         {
             TbMenu.DisplayAndSearch("SELECT DishID, DishName, Price FROM dishes WHERE DishName LIKE'%" + textBox2.Text + "%'", dataGridViewMenu);
         }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPage2_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnSaveDishIngr_Click(object sender, EventArgs e)
+        {
+            TbDishIngredients.SaveDishIngredients(comboBox1, tableDishIngrediets);
+        }
+        ////////////////////////////////////////////////////////////////
+
+
+
     }
 }
