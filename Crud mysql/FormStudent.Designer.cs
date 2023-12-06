@@ -44,7 +44,8 @@
             this.txtSearch = new System.Windows.Forms.PictureBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNew = new System.Windows.Forms.Button();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.btnOrder = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnDishIng = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -66,6 +67,7 @@
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.btnNewMenu = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.btnSaveDishIngr = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.tableDishIngrediets = new System.Windows.Forms.DataGridView();
@@ -74,12 +76,35 @@
             this.Available = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Required = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.btnSaveDishIngr = new System.Windows.Forms.Button();
+            this.tabPage4 = new System.Windows.Forms.TabPage();
+            this.label6 = new System.Windows.Forms.Label();
+            this.txtCustomerName = new System.Windows.Forms.TextBox();
+            this.tableOrder = new System.Windows.Forms.DataGridView();
+            this.button2 = new System.Windows.Forms.Button();
+            this.DishID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Dish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.AvailableDish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.RequiredDish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.button3 = new System.Windows.Forms.Button();
+            this.comboBoxEmployee = new System.Windows.Forms.ComboBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.label9 = new System.Windows.Forms.Label();
+            this.tableReport = new System.Windows.Forms.DataGridView();
+            this.reportOrderID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportOrderDate = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportCustomerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportDish = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.reportTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).BeginInit();
-            this.panel3.SuspendLayout();
+            this.btnOrder.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -88,6 +113,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableDishIngrediets)).BeginInit();
+            this.tabPage4.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableOrder)).BeginInit();
+            this.tabPage5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableReport)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -246,18 +275,34 @@
             this.btnNew.UseVisualStyleBackColor = false;
             this.btnNew.Click += new System.EventHandler(this.btnNew_Click);
             // 
-            // panel3
+            // btnOrder
             // 
-            this.panel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.panel3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.panel3.Controls.Add(this.btnDishIng);
-            this.panel3.Controls.Add(this.txtInfo);
-            this.panel3.Controls.Add(this.btnMenu);
-            this.panel3.Controls.Add(this.btnProducts);
-            this.panel3.Location = new System.Drawing.Point(947, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(231, 643);
-            this.panel3.TabIndex = 1;
+            this.btnOrder.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnOrder.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnOrder.Controls.Add(this.button4);
+            this.btnOrder.Controls.Add(this.button3);
+            this.btnOrder.Controls.Add(this.button1);
+            this.btnOrder.Controls.Add(this.btnDishIng);
+            this.btnOrder.Controls.Add(this.txtInfo);
+            this.btnOrder.Controls.Add(this.btnMenu);
+            this.btnOrder.Controls.Add(this.btnProducts);
+            this.btnOrder.Location = new System.Drawing.Point(947, 0);
+            this.btnOrder.Name = "btnOrder";
+            this.btnOrder.Size = new System.Drawing.Size(231, 643);
+            this.btnOrder.TabIndex = 1;
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button1.Location = new System.Drawing.Point(10, 222);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(209, 64);
+            this.button1.TabIndex = 4;
+            this.button1.Text = "Заказ";
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // btnDishIng
             // 
@@ -320,6 +365,8 @@
             this.tabControl.Controls.Add(this.tabPage1);
             this.tabControl.Controls.Add(this.tabPage2);
             this.tabControl.Controls.Add(this.tabPage3);
+            this.tabControl.Controls.Add(this.tabPage4);
+            this.tabControl.Controls.Add(this.tabPage5);
             this.tabControl.Location = new System.Drawing.Point(12, 82);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -521,6 +568,20 @@
             this.tabPage3.UseVisualStyleBackColor = true;
             this.tabPage3.Click += new System.EventHandler(this.tabPage3_Click);
             // 
+            // btnSaveDishIngr
+            // 
+            this.btnSaveDishIngr.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnSaveDishIngr.FlatAppearance.BorderSize = 0;
+            this.btnSaveDishIngr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnSaveDishIngr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnSaveDishIngr.Location = new System.Drawing.Point(730, 87);
+            this.btnSaveDishIngr.Name = "btnSaveDishIngr";
+            this.btnSaveDishIngr.Size = new System.Drawing.Size(94, 35);
+            this.btnSaveDishIngr.TabIndex = 8;
+            this.btnSaveDishIngr.Text = "Save";
+            this.btnSaveDishIngr.UseVisualStyleBackColor = false;
+            this.btnSaveDishIngr.Click += new System.EventHandler(this.btnSaveDishIngr_Click);
+            // 
             // label5
             // 
             this.label5.AutoSize = true;
@@ -543,6 +604,8 @@
             // 
             // tableDishIngrediets
             // 
+            this.tableDishIngrediets.AllowUserToAddRows = false;
+            this.tableDishIngrediets.AllowUserToDeleteRows = false;
             this.tableDishIngrediets.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.tableDishIngrediets.BackgroundColor = System.Drawing.Color.White;
             this.tableDishIngrediets.BorderStyle = System.Windows.Forms.BorderStyle.None;
@@ -587,20 +650,229 @@
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(270, 33);
             this.comboBox1.TabIndex = 1;
+            this.comboBox1.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             // 
-            // btnSaveDishIngr
+            // tabPage4
             // 
-            this.btnSaveDishIngr.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.btnSaveDishIngr.FlatAppearance.BorderSize = 0;
-            this.btnSaveDishIngr.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnSaveDishIngr.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSaveDishIngr.Location = new System.Drawing.Point(730, 87);
-            this.btnSaveDishIngr.Name = "btnSaveDishIngr";
-            this.btnSaveDishIngr.Size = new System.Drawing.Size(94, 35);
-            this.btnSaveDishIngr.TabIndex = 8;
-            this.btnSaveDishIngr.Text = "Save";
-            this.btnSaveDishIngr.UseVisualStyleBackColor = false;
-            this.btnSaveDishIngr.Click += new System.EventHandler(this.btnSaveDishIngr_Click);
+            this.tabPage4.Controls.Add(this.comboBoxEmployee);
+            this.tabPage4.Controls.Add(this.label8);
+            this.tabPage4.Controls.Add(this.button2);
+            this.tabPage4.Controls.Add(this.tableOrder);
+            this.tabPage4.Controls.Add(this.txtCustomerName);
+            this.tabPage4.Controls.Add(this.label7);
+            this.tabPage4.Controls.Add(this.label6);
+            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.Name = "tabPage4";
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage4.Size = new System.Drawing.Size(916, 523);
+            this.tabPage4.TabIndex = 3;
+            this.tabPage4.Text = "tabPage4";
+            this.tabPage4.UseVisualStyleBackColor = true;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label6.Location = new System.Drawing.Point(18, 23);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(85, 37);
+            this.label6.TabIndex = 7;
+            this.label6.Text = "Заказ";
+            // 
+            // txtCustomerName
+            // 
+            this.txtCustomerName.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtCustomerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.txtCustomerName.Location = new System.Drawing.Point(144, 70);
+            this.txtCustomerName.Name = "txtCustomerName";
+            this.txtCustomerName.Size = new System.Drawing.Size(205, 29);
+            this.txtCustomerName.TabIndex = 10;
+            this.txtCustomerName.TextChanged += new System.EventHandler(this.txtCustomerName_TextChanged);
+            // 
+            // tableOrder
+            // 
+            this.tableOrder.AllowUserToAddRows = false;
+            this.tableOrder.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableOrder.BackgroundColor = System.Drawing.Color.White;
+            this.tableOrder.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableOrder.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.DishID,
+            this.Dish,
+            this.Price,
+            this.AvailableDish,
+            this.RequiredDish});
+            this.tableOrder.Location = new System.Drawing.Point(25, 138);
+            this.tableOrder.Name = "tableOrder";
+            this.tableOrder.Size = new System.Drawing.Size(863, 379);
+            this.tableOrder.TabIndex = 11;
+            this.tableOrder.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tableOrder_CellContentClick);
+            // 
+            // button2
+            // 
+            this.button2.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button2.Location = new System.Drawing.Point(759, 66);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 35);
+            this.button2.TabIndex = 12;
+            this.button2.Text = "Save";
+            this.button2.UseVisualStyleBackColor = false;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // DishID
+            // 
+            this.DishID.HeaderText = "DishID";
+            this.DishID.Name = "DishID";
+            this.DishID.Visible = false;
+            // 
+            // Dish
+            // 
+            this.Dish.HeaderText = "Блюдо";
+            this.Dish.Name = "Dish";
+            // 
+            // Price
+            // 
+            this.Price.HeaderText = "Цена";
+            this.Price.Name = "Price";
+            // 
+            // AvailableDish
+            // 
+            this.AvailableDish.HeaderText = "Доступные";
+            this.AvailableDish.Name = "AvailableDish";
+            // 
+            // RequiredDish
+            // 
+            this.RequiredDish.HeaderText = "Необходимо:";
+            this.RequiredDish.Name = "RequiredDish";
+            // 
+            // button3
+            // 
+            this.button3.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button3.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button3.FlatAppearance.BorderSize = 0;
+            this.button3.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button3.Location = new System.Drawing.Point(10, 405);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(209, 64);
+            this.button3.TabIndex = 5;
+            this.button3.Text = "Отчет";
+            this.button3.UseVisualStyleBackColor = false;
+            // 
+            // comboBoxEmployee
+            // 
+            this.comboBoxEmployee.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.comboBoxEmployee.FormattingEnabled = true;
+            this.comboBoxEmployee.Location = new System.Drawing.Point(493, 67);
+            this.comboBoxEmployee.Name = "comboBoxEmployee";
+            this.comboBoxEmployee.Size = new System.Drawing.Size(205, 33);
+            this.comboBoxEmployee.TabIndex = 14;
+            this.comboBoxEmployee.SelectedIndexChanged += new System.EventHandler(this.comboBoxEmployee_SelectedIndexChanged);
+            // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.button4.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.button4.Location = new System.Drawing.Point(10, 475);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(209, 64);
+            this.button4.TabIndex = 6;
+            this.button4.Text = "Зарплаты";
+            this.button4.UseVisualStyleBackColor = false;
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label7.Location = new System.Drawing.Point(22, 70);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(118, 25);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "Покупатель:";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Segoe UI", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label8.Location = new System.Drawing.Point(383, 70);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(104, 25);
+            this.label8.TabIndex = 13;
+            this.label8.Text = "Выполнил:";
+            // 
+            // tabPage5
+            // 
+            this.tabPage5.Controls.Add(this.tableReport);
+            this.tabPage5.Controls.Add(this.label9);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(916, 523);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "tabPage5";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label9.Location = new System.Drawing.Point(18, 18);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(88, 37);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Отчет";
+            // 
+            // tableReport
+            // 
+            this.tableReport.AllowUserToAddRows = false;
+            this.tableReport.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableReport.BackgroundColor = System.Drawing.Color.White;
+            this.tableReport.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableReport.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.reportOrderID,
+            this.reportOrderDate,
+            this.reportCustomerName,
+            this.reportDish,
+            this.reportQuantity,
+            this.reportTotalPrice});
+            this.tableReport.Location = new System.Drawing.Point(27, 72);
+            this.tableReport.Name = "tableReport";
+            this.tableReport.Size = new System.Drawing.Size(863, 418);
+            this.tableReport.TabIndex = 12;
+            // 
+            // reportOrderID
+            // 
+            this.reportOrderID.HeaderText = "OrderID";
+            this.reportOrderID.Name = "reportOrderID";
+            this.reportOrderID.Visible = false;
+            // 
+            // reportOrderDate
+            // 
+            this.reportOrderDate.HeaderText = "OrderDate";
+            this.reportOrderDate.Name = "reportOrderDate";
+            // 
+            // reportCustomerName
+            // 
+            this.reportCustomerName.HeaderText = "Customer Name";
+            this.reportCustomerName.Name = "reportCustomerName";
+            // 
+            // reportDish
+            // 
+            this.reportDish.HeaderText = "Блюдо:";
+            this.reportDish.Name = "reportDish";
+            // 
+            // reportQuantity
+            // 
+            this.reportQuantity.HeaderText = "Quantity:";
+            this.reportQuantity.Name = "reportQuantity";
+            // 
+            // reportTotalPrice
+            // 
+            this.reportTotalPrice.HeaderText = "TotalPrice";
+            this.reportTotalPrice.Name = "reportTotalPrice";
             // 
             // FormStudent
             // 
@@ -608,7 +880,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1178, 643);
             this.Controls.Add(this.tabControl);
-            this.Controls.Add(this.panel3);
+            this.Controls.Add(this.btnOrder);
             this.Controls.Add(this.panel1);
             this.Name = "FormStudent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -621,8 +893,8 @@
             this.panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.txtSearch)).EndInit();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.btnOrder.ResumeLayout(false);
+            this.btnOrder.PerformLayout();
             this.tabControl.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -635,6 +907,12 @@
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableDishIngrediets)).EndInit();
+            this.tabPage4.ResumeLayout(false);
+            this.tabPage4.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableOrder)).EndInit();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableReport)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -648,7 +926,7 @@
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button btnNew;
         private System.Windows.Forms.DataGridView dataGridView;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel btnOrder;
         private System.Windows.Forms.Button btnProducts;
         private System.Windows.Forms.Button btnMenu;
         private System.Windows.Forms.Label txtInfo;
@@ -684,6 +962,31 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSaveDishIngr;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TabPage tabPage4;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.DataGridView tableOrder;
+        private System.Windows.Forms.TextBox txtCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DishID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Dish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AvailableDish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn RequiredDish;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.ComboBox comboBoxEmployee;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.DataGridView tableReport;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportOrderID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportOrderDate;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportCustomerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportDish;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportQuantity;
+        private System.Windows.Forms.DataGridViewTextBoxColumn reportTotalPrice;
     }
 }
 

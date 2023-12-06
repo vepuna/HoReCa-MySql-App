@@ -183,6 +183,15 @@ namespace Crud_mysql
                 TbDishIngredients.LoadDishes(comboBox1);
                 TbDishIngredients.LoadDataIntoDataGridView(tableDishIngrediets);
             }
+            if (e.TabPage == tabPage4)
+            {
+                TbOrder.LoadEmployee(comboBoxEmployee);
+                TbOrder.LoadAvailableDishes(tableOrder);
+            }
+            if(e.TabPage == tabPage5)
+            {
+                TbOrder.LoadReport(tableReport);
+            }
         }
 
         private void dataGridViewMenu_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
@@ -218,6 +227,31 @@ namespace Crud_mysql
         private void btnSaveDishIngr_Click(object sender, EventArgs e)
         {
             TbDishIngredients.SaveDishIngredients(comboBox1, tableDishIngrediets);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            TbOrder.SaveOrder(tableOrder, txtCustomerName, comboBoxEmployee);
+        }
+
+        private void comboBoxEmployee_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtCustomerName_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
         ////////////////////////////////////////////////////////////////
 
