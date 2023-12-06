@@ -20,6 +20,8 @@ namespace Crud_mysql
             // tabControl.ItemSize = new Size(0, 1);
             // tabControl.SizeMode = TabSizeMode.Fixed;
             Display();
+            tabControl.SizeMode = TabSizeMode.Fixed;
+            tabControl.ItemSize = new Size(0, 1);
         }
 
         
@@ -139,6 +141,7 @@ namespace Crud_mysql
                 form.quantity = dataGridViewMenu.Rows[e.RowIndex].Cells[4].Value.ToString();
                 form.UpdateInfoMenu();
                 form.ShowDialog();
+
                 return;
             }
 
@@ -191,6 +194,10 @@ namespace Crud_mysql
             if(e.TabPage == tabPage5)
             {
                 TbOrder.LoadReport(tableReport);
+            }
+            if (e.TabPage == tabPage6)
+            {
+                TbOrder.LoadSalary(tableSalary);
             }
         }
 
@@ -252,6 +259,36 @@ namespace Crud_mysql
         private void tableOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnProducts_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 0;
+        }
+
+        private void btnMenu_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 1;
+        }
+
+        private void btnDishIng_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 2;
+        }
+
+        private void btnOrderMenu_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 3;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 4;
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 5;
         }
         ////////////////////////////////////////////////////////////////
 

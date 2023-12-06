@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panel1 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -45,7 +45,7 @@
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.btnNew = new System.Windows.Forms.Button();
             this.btnOrder = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnOrderMenu = new System.Windows.Forms.Button();
             this.btnDishIng = new System.Windows.Forms.Button();
             this.txtInfo = new System.Windows.Forms.Label();
             this.btnMenu = new System.Windows.Forms.Button();
@@ -100,6 +100,13 @@
             this.reportDish = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportQuantity = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.reportTotalPrice = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.label10 = new System.Windows.Forms.Label();
+            this.tableSalary = new System.Windows.Forms.DataGridView();
+            this.SalaryID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryEmployee = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.salaryTotal = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
@@ -117,6 +124,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.tableOrder)).BeginInit();
             this.tabPage5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableReport)).BeginInit();
+            this.tabPage6.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableSalary)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -211,11 +220,11 @@
             // 
             // Column6
             // 
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.Column6.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.Column6.DefaultCellStyle = dataGridViewCellStyle25;
             this.Column6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column6.HeaderText = "";
             this.Column6.Name = "Column6";
@@ -225,11 +234,11 @@
             // 
             // Column7
             // 
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.Red;
-            this.Column7.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.Color.Red;
+            this.Column7.DefaultCellStyle = dataGridViewCellStyle26;
             this.Column7.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.Column7.HeaderText = "";
             this.Column7.Name = "Column7";
@@ -281,7 +290,7 @@
             this.btnOrder.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
             this.btnOrder.Controls.Add(this.button4);
             this.btnOrder.Controls.Add(this.button3);
-            this.btnOrder.Controls.Add(this.button1);
+            this.btnOrder.Controls.Add(this.btnOrderMenu);
             this.btnOrder.Controls.Add(this.btnDishIng);
             this.btnOrder.Controls.Add(this.txtInfo);
             this.btnOrder.Controls.Add(this.btnMenu);
@@ -291,18 +300,19 @@
             this.btnOrder.Size = new System.Drawing.Size(231, 643);
             this.btnOrder.TabIndex = 1;
             // 
-            // button1
+            // btnOrderMenu
             // 
-            this.button1.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.White;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.button1.Location = new System.Drawing.Point(10, 222);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(209, 64);
-            this.button1.TabIndex = 4;
-            this.button1.Text = "Заказ";
-            this.button1.UseVisualStyleBackColor = false;
+            this.btnOrderMenu.BackColor = System.Drawing.SystemColors.GradientInactiveCaption;
+            this.btnOrderMenu.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.btnOrderMenu.FlatAppearance.BorderSize = 0;
+            this.btnOrderMenu.Font = new System.Drawing.Font("Segoe UI", 21.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.btnOrderMenu.Location = new System.Drawing.Point(10, 222);
+            this.btnOrderMenu.Name = "btnOrderMenu";
+            this.btnOrderMenu.Size = new System.Drawing.Size(209, 64);
+            this.btnOrderMenu.TabIndex = 4;
+            this.btnOrderMenu.Text = "Заказ";
+            this.btnOrderMenu.UseVisualStyleBackColor = false;
+            this.btnOrderMenu.Click += new System.EventHandler(this.btnOrderMenu_Click);
             // 
             // btnDishIng
             // 
@@ -316,6 +326,7 @@
             this.btnDishIng.TabIndex = 3;
             this.btnDishIng.Text = "Ингредиенты";
             this.btnDishIng.UseVisualStyleBackColor = false;
+            this.btnDishIng.Click += new System.EventHandler(this.btnDishIng_Click);
             // 
             // txtInfo
             // 
@@ -339,6 +350,7 @@
             this.btnMenu.TabIndex = 1;
             this.btnMenu.Text = "Меню";
             this.btnMenu.UseVisualStyleBackColor = false;
+            this.btnMenu.Click += new System.EventHandler(this.btnMenu_Click);
             // 
             // btnProducts
             // 
@@ -352,6 +364,7 @@
             this.btnProducts.TabIndex = 0;
             this.btnProducts.Text = "Склад";
             this.btnProducts.UseVisualStyleBackColor = false;
+            this.btnProducts.Click += new System.EventHandler(this.btnProducts_Click);
             // 
             // mySqlDataAdapter1
             // 
@@ -367,6 +380,7 @@
             this.tabControl.Controls.Add(this.tabPage3);
             this.tabControl.Controls.Add(this.tabPage4);
             this.tabControl.Controls.Add(this.tabPage5);
+            this.tabControl.Controls.Add(this.tabPage6);
             this.tabControl.Location = new System.Drawing.Point(12, 82);
             this.tabControl.Name = "tabControl";
             this.tabControl.SelectedIndex = 0;
@@ -489,11 +503,11 @@
             // 
             // dataGridViewButtonColumn1
             // 
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
-            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.dataGridViewButtonColumn1.DefaultCellStyle = dataGridViewCellStyle27;
             this.dataGridViewButtonColumn1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dataGridViewButtonColumn1.HeaderText = "";
             this.dataGridViewButtonColumn1.Name = "dataGridViewButtonColumn1";
@@ -503,11 +517,11 @@
             // 
             // dataGridViewButtonColumn2
             // 
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.Red;
-            this.dataGridViewButtonColumn2.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.Red;
+            this.dataGridViewButtonColumn2.DefaultCellStyle = dataGridViewCellStyle28;
             this.dataGridViewButtonColumn2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.dataGridViewButtonColumn2.HeaderText = "";
             this.dataGridViewButtonColumn2.Name = "dataGridViewButtonColumn2";
@@ -759,6 +773,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Отчет";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // comboBoxEmployee
             // 
@@ -782,6 +797,7 @@
             this.button4.TabIndex = 6;
             this.button4.Text = "Зарплаты";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // label7
             // 
@@ -840,6 +856,7 @@
             this.reportTotalPrice});
             this.tableReport.Location = new System.Drawing.Point(27, 72);
             this.tableReport.Name = "tableReport";
+            this.tableReport.ReadOnly = true;
             this.tableReport.Size = new System.Drawing.Size(863, 418);
             this.tableReport.TabIndex = 12;
             // 
@@ -847,32 +864,95 @@
             // 
             this.reportOrderID.HeaderText = "OrderID";
             this.reportOrderID.Name = "reportOrderID";
+            this.reportOrderID.ReadOnly = true;
             this.reportOrderID.Visible = false;
             // 
             // reportOrderDate
             // 
             this.reportOrderDate.HeaderText = "OrderDate";
             this.reportOrderDate.Name = "reportOrderDate";
+            this.reportOrderDate.ReadOnly = true;
             // 
             // reportCustomerName
             // 
             this.reportCustomerName.HeaderText = "Customer Name";
             this.reportCustomerName.Name = "reportCustomerName";
+            this.reportCustomerName.ReadOnly = true;
             // 
             // reportDish
             // 
             this.reportDish.HeaderText = "Блюдо:";
             this.reportDish.Name = "reportDish";
+            this.reportDish.ReadOnly = true;
             // 
             // reportQuantity
             // 
             this.reportQuantity.HeaderText = "Quantity:";
             this.reportQuantity.Name = "reportQuantity";
+            this.reportQuantity.ReadOnly = true;
             // 
             // reportTotalPrice
             // 
             this.reportTotalPrice.HeaderText = "TotalPrice";
             this.reportTotalPrice.Name = "reportTotalPrice";
+            this.reportTotalPrice.ReadOnly = true;
+            // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.tableSalary);
+            this.tabPage6.Controls.Add(this.label10);
+            this.tabPage6.Location = new System.Drawing.Point(4, 22);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(916, 523);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "tabPage6";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Font = new System.Drawing.Font("Segoe UI", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.label10.Location = new System.Drawing.Point(19, 22);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(131, 37);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Зарплата";
+            // 
+            // tableSalary
+            // 
+            this.tableSalary.AllowUserToAddRows = false;
+            this.tableSalary.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            this.tableSalary.BackgroundColor = System.Drawing.Color.White;
+            this.tableSalary.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.tableSalary.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.SalaryID,
+            this.salaryEmployee,
+            this.salaryTotal});
+            this.tableSalary.Location = new System.Drawing.Point(26, 87);
+            this.tableSalary.Name = "tableSalary";
+            this.tableSalary.ReadOnly = true;
+            this.tableSalary.Size = new System.Drawing.Size(863, 418);
+            this.tableSalary.TabIndex = 13;
+            // 
+            // SalaryID
+            // 
+            this.SalaryID.HeaderText = "OrderID";
+            this.SalaryID.Name = "SalaryID";
+            this.SalaryID.ReadOnly = true;
+            this.SalaryID.Visible = false;
+            // 
+            // salaryEmployee
+            // 
+            this.salaryEmployee.HeaderText = "Employee";
+            this.salaryEmployee.Name = "salaryEmployee";
+            this.salaryEmployee.ReadOnly = true;
+            // 
+            // salaryTotal
+            // 
+            this.salaryTotal.HeaderText = "TotalPrice";
+            this.salaryTotal.Name = "salaryTotal";
+            this.salaryTotal.ReadOnly = true;
             // 
             // FormStudent
             // 
@@ -913,6 +993,9 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tableReport)).EndInit();
+            this.tabPage6.ResumeLayout(false);
+            this.tabPage6.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.tableSalary)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -962,7 +1045,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnSaveDishIngr;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnOrderMenu;
         private System.Windows.Forms.TabPage tabPage4;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button button2;
@@ -987,6 +1070,13 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn reportDish;
         private System.Windows.Forms.DataGridViewTextBoxColumn reportQuantity;
         private System.Windows.Forms.DataGridViewTextBoxColumn reportTotalPrice;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.DataGridView tableSalary;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SalaryID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryEmployee;
+        private System.Windows.Forms.DataGridViewTextBoxColumn salaryTotal;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
     }
 }
 

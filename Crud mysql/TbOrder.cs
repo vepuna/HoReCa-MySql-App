@@ -14,7 +14,7 @@ namespace Crud_mysql
         public static void LoadAvailableDishes(DataGridView tableOrder)
         {
 
-
+            tableOrder.Rows.Clear();
             string query = "SELECT d.DishID, " +
                 "d.DishName, " +
                 "d.Price, " +
@@ -104,7 +104,7 @@ namespace Crud_mysql
             return productsRequired;
         }
 
-        public static void SaveOrder (DataGridView tableOrder, TextBox textBox1, ComboBox comboBox)
+        public static void SaveOrder(DataGridView tableOrder, TextBox textBox1, ComboBox comboBox)
         {
             var selectedDish = (dynamic)comboBox.SelectedItem;
             int EmployeeID = selectedDish.Value;
@@ -141,7 +141,7 @@ namespace Crud_mysql
                                 command.Parameters.AddWithValue("@TotalPrice", totalPrice);
                                 command.ExecuteNonQuery();
                             }
-                            string queryEmployee = "INSERT INTO employeesalaries (EmployeeID, CommissionAmount) VALUES (@EmployeeID, @CommissionAmount);";
+                            string queryEmployee = "INSERT INTO EmployeeSalaries (EmployeeID, CommissionAmount) VALUES (@EmployeeID, @CommissionAmount) ON DUPLICATE KEY UPDATE CommissionAmount = CommissionAmount + VALUES(CommissionAmount);";
                             using (var command = new MySqlCommand(queryEmployee, connection))
                             {
 
@@ -190,6 +190,7 @@ namespace Crud_mysql
         }
         public static void LoadReport(DataGridView tableOrder)
         {
+            tableOrder.Rows.Clear();
             string query = "SELECT Orders.OrderID, Orders.OrderDate, Orders.CustomerName, Dishes.DishName, Orders.Quantity, Orders.TotalPrice FROM Orders JOIN Dishes ON Orders.DishID = Dishes.DishID;";
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -207,11 +208,35 @@ namespace Crud_mysql
                         tableOrder.Rows[rowIndex].Cells["reportQuantity"].Value = reader["Quantity"];
                         tableOrder.Rows[rowIndex].Cells["reportTotalPrice"].Value = reader["TotalPrice"];
                     }
+                    connection.Close();
                 }
             }
-
-
         }
-        
+
+        public static void LoadSalary(DataGridView tableOrder)
+        {
+            tableOrder.Rows.Clear();
+            string query = "SELECT es.SalaryID, e.EmployeeName, es.CommissionAmount FROM employeesalaries es INNER JOIN Employees e ON es.EmployeeID = e.EmployeeID;";
+            using (var connection = new MySqlConnection(connectionString))
+            {
+                var command = new MySqlCommand(query, connection);
+                connection.Open();
+                using (var reader = command.ExecuteReader())
+                {
+                    while (reader.Read())
+                    {
+                        int rowIndex = tableOrder.Rows.Add();
+                        tableOrder.Rows[rowIndex].Cells["SalaryID"].Value = reader["SalaryID"];
+                        tableOrder.Rows[rowIndex].Cells["salaryEmployee"].Value = reader["EmployeeName"];
+                        tableOrder.Rows[rowIndex].Cells["salaryTotal"].Value = reader["CommissionAmount"];
+                        
+                    }
+                    connection.Close();
+                }
+            }
+        }
+
+
+
     }
 }
