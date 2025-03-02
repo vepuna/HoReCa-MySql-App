@@ -107,7 +107,7 @@ namespace Crud_mysql
         public static void SaveOrder(DataGridView tableOrder, TextBox textBox1, ComboBox comboBox)
         {
             var selectedDish = (dynamic)comboBox.SelectedItem;
-            if (selectedDish.Value == null)
+            if (selectedDish?.Value == null)
             {
                 MessageBox.Show("Недостаточно данных для ввода!");
                 return;
@@ -116,6 +116,10 @@ namespace Crud_mysql
 
             string customerName = textBox1.Text;
             DateTime orderDate = DateTime.Now;
+            decimal totalCheckAmount = 0;
+            StringBuilder receipt = new StringBuilder();
+            receipt.AppendLine($"Чек заказа\nДата: {orderDate}\nКлиент: {customerName}\n");
+            receipt.AppendLine("--------------------------------------------");
 
             using (var connection = new MySqlConnection(connectionString))
             {
@@ -128,13 +132,13 @@ namespace Crud_mysql
                         int dishID = Convert.ToInt32(row.Cells["DishID"].Value);
                         int orderQuantity = Convert.ToInt32(row.Cells["RequiredDish"].Value);
                         int availableQuantity = Convert.ToInt32(row.Cells["AvailableDish"].Value);
-
-                        ProcessOrder(row.Cells["DishID"].Value, row.Cells["RequiredDish"].Value);
+                        string dishName = row.Cells["Dish"].Value.ToString();
+                        decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
+                        decimal totalPrice = orderQuantity * price;
 
                         if (orderQuantity > 0 && orderQuantity <= availableQuantity)
                         {
-                            decimal price = Convert.ToDecimal(row.Cells["Price"].Value);
-                            decimal totalPrice = orderQuantity * price;
+                            ProcessOrder(dishID, orderQuantity);
 
                             string query = "INSERT INTO Orders (OrderDate, CustomerName, DishID, Quantity, TotalPrice) VALUES (@OrderDate, @CustomerName, @DishID, @Quantity, @TotalPrice)";
                             using (var command = new MySqlCommand(query, connection))
@@ -146,6 +150,7 @@ namespace Crud_mysql
                                 command.Parameters.AddWithValue("@TotalPrice", totalPrice);
                                 command.ExecuteNonQuery();
                             }
+
                             string queryEmployee = "INSERT INTO EmployeeSalaries (EmployeeID, CommissionAmount) VALUES (@EmployeeID, @CommissionAmount) ON DUPLICATE KEY UPDATE CommissionAmount = CommissionAmount + VALUES(CommissionAmount);";
                             using (var command = new MySqlCommand(queryEmployee, connection))
                             {
@@ -153,16 +158,24 @@ namespace Crud_mysql
                                 command.Parameters.AddWithValue("@CommissionAmount", totalPrice / 10);
                                 command.ExecuteNonQuery();
                             }
+
+                            receipt.AppendLine($"{dishName} - {orderQuantity} x {price} = {totalPrice}");
+                            totalCheckAmount += totalPrice;
                         }
                         else
                         {
-                            MessageBox.Show($"Заказанное количество для блюда {row.Cells["Dish"].Value} превышает доступное.");
+                            MessageBox.Show($"Заказанное количество для блюда {dishName} превышает доступное.");
                             return;
                         }
                     }
                 }
                 connection.Close();
             }
+
+            receipt.AppendLine("--------------------------------------------");
+            receipt.AppendLine($"Итого: {totalCheckAmount}");
+            MessageBox.Show(receipt.ToString(), "Чек заказа", MessageBoxButtons.OK, MessageBoxIcon.Information);
+
             tableOrder.Rows.Clear();
             LoadAvailableDishes(tableOrder);
         }
