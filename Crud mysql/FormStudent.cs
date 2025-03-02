@@ -269,6 +269,11 @@ namespace Crud_mysql
             tabControl.SelectedIndex = 5;
         }
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+            tabControl.SelectedIndex = 6;
+        }
+
         ////////////////////////////////////////////////////////////////
     }
 }
