@@ -6,17 +6,15 @@ using System.Threading.Tasks;
 
 namespace Crud_mysql
 {
-    internal class menu
+    internal class Menu
     {
         public string Name { get; set; }
         public string Price { get; set; }
 
-
-        public menu(string name, string price)
+        public Menu(string name, string price)
         {
             Name = name;
             Price = price;
         }
     }
 }
-

@@ -13,7 +13,8 @@ namespace Crud_mysql
     {
         public static MySqlConnection GetConnection()
         {
-            string sql = "datasource=localhost;port=3306;username=root;password=;database=pizzeria";
+            string sql = "server=127.0.0.1;port=3306;user=root;password=root;database=pizzeria;";
+
             MySqlConnection connection = new MySqlConnection(sql);
             try
             {
@@ -21,14 +22,14 @@ namespace Crud_mysql
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("Error with Connection", ex.Message,MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Error with Connection", ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             return connection;
         }
 
-        public static void AddStudent(products std)
+        public static void AddStudent(Products std)
         {
-            string sql = "INSERT INTO products VALUES (NULL, @ProductName, @ProductQuantity)";
+            string sql = "INSERT INTO Products VALUES (NULL, @ProductName, @ProductQuantity)";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
@@ -47,9 +48,9 @@ namespace Crud_mysql
             connection.Close();
         }
 
-        public static void UpdateStudent(products std, string id)
+        public static void UpdateStudent(Products std, string id)
         {
-            string sql = "UPDATE products SET Name = @ProductName, Quantity = @ProductQuantity  WHERE ProductID = @ProductsID";
+            string sql = "UPDATE Products SET Name = @ProductName, Quantity = @ProductQuantity  WHERE ProductID = @ProductsID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
@@ -67,10 +68,10 @@ namespace Crud_mysql
             }
             connection.Close();
         }
-        
+
         public static void DeleteStudent(string id)
         {
-            string sql = "DELETE FROM products WHERE ProductID = @ProductsID";
+            string sql = "DELETE FROM Products WHERE ProductID = @ProductsID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;

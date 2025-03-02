@@ -12,7 +12,8 @@ namespace Crud_mysql
 {
     public partial class FormStudent : Form
     {
-        FormInfo form;
+        private FormInfo form;
+
         public FormStudent()
         {
             InitializeComponent();
@@ -24,31 +25,26 @@ namespace Crud_mysql
             tabControl.ItemSize = new Size(0, 1);
         }
 
-        
         public void Display()
         {
-            DbStudent.DisplayAndSearch("SELECT ProductID, Name, Quantity FROM products", dataGridView);
-
+            DbStudent.DisplayAndSearch("SELECT ProductID, Name, Quantity FROM Products", dataGridView);
         }
+
         public void DisplayMenu()
         {
-            DbStudent.DisplayAndSearch("SELECT DishID, DishName, Price FROM dishes", dataGridViewMenu);
-
+            DbStudent.DisplayAndSearch("SELECT DishID, DishName, Price FROM Dishes", dataGridViewMenu);
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
         }
 
         private void label1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnNew_Click(object sender, EventArgs e)
@@ -65,13 +61,14 @@ namespace Crud_mysql
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-            DbStudent.DisplayAndSearch("SELECT ProductID, Name, Quantity FROM products WHERE Name LIKE'%" + textBox1.Text+"%'", dataGridView);
+            DbStudent.DisplayAndSearch("SELECT ProductID, Name, Quantity FROM Products WHERE Name LIKE'%" + textBox1.Text + "%'", dataGridView);
         }
 
         private void dataGridView_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Edit user
-            if(e.ColumnIndex == 0) {
+            if (e.ColumnIndex == 0)
+            {
                 form.Clear();
                 form.id = dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString();
                 form.name = dataGridView.Rows[e.RowIndex].Cells[3].Value.ToString();
@@ -82,9 +79,9 @@ namespace Crud_mysql
             }
 
             //Delete user
-            if(e.ColumnIndex == 1)
+            if (e.ColumnIndex == 1)
             {
-                if(MessageBox.Show("Delete row?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes )
+                if (MessageBox.Show("Delete row?", "Confirmation", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Information) == DialogResult.Yes)
                 {
                     DbStudent.DeleteStudent(dataGridView.Rows[e.RowIndex].Cells[2].Value.ToString());
                     Display();
@@ -95,27 +92,22 @@ namespace Crud_mysql
 
         private void panel2_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void dataGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void txtInfo_Click(object sender, EventArgs e)
         {
-
         }
 
         private void tabPage1_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnNewMenu_Click(object sender, EventArgs e)
@@ -123,13 +115,12 @@ namespace Crud_mysql
             form.Clear();
             form.SaveInfoMenu();
             form.ShowDialog();
-            
         }
 
         /////////////////////////////////////////////
-        ///menu 
+        ///menu
         ////////////////////////////////////////////
-             
+
         private void dataGridViewMenu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             //Edit user
@@ -156,13 +147,10 @@ namespace Crud_mysql
                 return;
             }
             DisplayMenu();
-
         }
-        
 
         private void dataGridViewMenu_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void tabPage2_Click(object sender, EventArgs e)
@@ -179,7 +167,6 @@ namespace Crud_mysql
             if (e.TabPage == tabPage2)
             {
                 DisplayMenu();
-                
             }
             if (e.TabPage == tabPage3)
             {
@@ -191,7 +178,7 @@ namespace Crud_mysql
                 TbOrder.LoadEmployee(comboBoxEmployee);
                 TbOrder.LoadAvailableDishes(tableOrder);
             }
-            if(e.TabPage == tabPage5)
+            if (e.TabPage == tabPage5)
             {
                 TbOrder.LoadReport(tableReport);
             }
@@ -203,32 +190,27 @@ namespace Crud_mysql
 
         private void dataGridViewMenu_CellContentClick_1(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
-            TbMenu.DisplayAndSearch("SELECT DishID, DishName, Price FROM dishes WHERE DishName LIKE'%" + textBox2.Text + "%'", dataGridViewMenu);
+            TbMenu.DisplayAndSearch("SELECT DishID, DishName, Price FROM Dishes WHERE DishName LIKE'%" + textBox2.Text + "%'", dataGridViewMenu);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void tabPage3_Click(object sender, EventArgs e)
         {
-
         }
 
         private void tabPage2_Click_1(object sender, EventArgs e)
         {
-
         }
 
         private void btnSaveDishIngr_Click(object sender, EventArgs e)
@@ -243,22 +225,18 @@ namespace Crud_mysql
 
         private void comboBoxEmployee_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void txtCustomerName_TextChanged(object sender, EventArgs e)
         {
-
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-
         }
 
         private void tableOrder_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-
         }
 
         private void btnProducts_Click(object sender, EventArgs e)
@@ -290,9 +268,7 @@ namespace Crud_mysql
         {
             tabControl.SelectedIndex = 5;
         }
+
         ////////////////////////////////////////////////////////////////
-
-
-
     }
 }

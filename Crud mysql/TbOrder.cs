@@ -10,10 +10,10 @@ namespace Crud_mysql
 {
     internal class TbOrder
     {
-        public static string connectionString = "datasource=localhost;port=3306;username=root;password=;database=pizzeria";
+        public static string connectionString = "server=127.0.0.1;port=3306;user=root;password=root;database=pizzeria;";
+
         public static void LoadAvailableDishes(DataGridView tableOrder)
         {
-
             tableOrder.Rows.Clear();
             string query = "SELECT d.DishID, " +
                 "d.DishName, " +
@@ -64,15 +64,15 @@ namespace Crud_mysql
                         command.ExecuteNonQuery();
                     }
                 }
-
             }
         }
+
         private static Dictionary<int, int> GetProductsRequiredForDish(int dishID, int dishQuantity)
         {
             var productsRequired = new Dictionary<int, int>();
             string query = @"
-                            SELECT ProductID, QuantityRequired 
-                            FROM DishIngredients 
+                            SELECT ProductID, QuantityRequired
+                            FROM DishIngredients
                             WHERE DishID = @DishID";
 
             using (var connection = new MySqlConnection(connectionString))
@@ -107,6 +107,11 @@ namespace Crud_mysql
         public static void SaveOrder(DataGridView tableOrder, TextBox textBox1, ComboBox comboBox)
         {
             var selectedDish = (dynamic)comboBox.SelectedItem;
+            if (selectedDish.Value == null)
+            {
+                MessageBox.Show("Недостаточно данных для ввода!");
+                return;
+            }
             int EmployeeID = selectedDish.Value;
 
             string customerName = textBox1.Text;
@@ -144,12 +149,9 @@ namespace Crud_mysql
                             string queryEmployee = "INSERT INTO EmployeeSalaries (EmployeeID, CommissionAmount) VALUES (@EmployeeID, @CommissionAmount) ON DUPLICATE KEY UPDATE CommissionAmount = CommissionAmount + VALUES(CommissionAmount);";
                             using (var command = new MySqlCommand(queryEmployee, connection))
                             {
-
-
                                 command.Parameters.AddWithValue("@EmployeeID", EmployeeID);
                                 command.Parameters.AddWithValue("@CommissionAmount", totalPrice / 10);
                                 command.ExecuteNonQuery();
-
                             }
                         }
                         else
@@ -158,7 +160,6 @@ namespace Crud_mysql
                             return;
                         }
                     }
-
                 }
                 connection.Close();
             }
@@ -172,7 +173,7 @@ namespace Crud_mysql
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT EmployeeID, EmployeeName FROM employees";
+                string query = "SELECT EmployeeID, EmployeeName FROM Employees";
                 var command = new MySqlCommand(query, connection);
                 using (var reader = command.ExecuteReader())
                 {
@@ -188,6 +189,7 @@ namespace Crud_mysql
                 connection.Close();
             }
         }
+
         public static void LoadReport(DataGridView tableOrder)
         {
             tableOrder.Rows.Clear();
@@ -216,7 +218,7 @@ namespace Crud_mysql
         public static void LoadSalary(DataGridView tableOrder)
         {
             tableOrder.Rows.Clear();
-            string query = "SELECT es.SalaryID, e.EmployeeName, es.CommissionAmount FROM employeesalaries es INNER JOIN Employees e ON es.EmployeeID = e.EmployeeID;";
+            string query = "SELECT es.SalaryID, e.EmployeeName, es.CommissionAmount FROM EmployeeSalaries es INNER JOIN Employees e ON es.EmployeeID = e.EmployeeID;";
             using (var connection = new MySqlConnection(connectionString))
             {
                 var command = new MySqlCommand(query, connection);
@@ -229,14 +231,10 @@ namespace Crud_mysql
                         tableOrder.Rows[rowIndex].Cells["SalaryID"].Value = reader["SalaryID"];
                         tableOrder.Rows[rowIndex].Cells["salaryEmployee"].Value = reader["EmployeeName"];
                         tableOrder.Rows[rowIndex].Cells["salaryTotal"].Value = reader["CommissionAmount"];
-                        
                     }
                     connection.Close();
                 }
             }
         }
-
-
-
     }
 }

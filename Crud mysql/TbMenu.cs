@@ -13,7 +13,7 @@ namespace Crud_mysql
     {
         public static MySqlConnection GetConnection()
         {
-            string sql = "datasource=localhost;port=3306;username=root;password=;database=pizzeria";
+            string sql = "server=127.0.0.1;port=3306;user=root;password=root;database=pizzeria;";
             MySqlConnection connection = new MySqlConnection(sql);
             try
             {
@@ -26,9 +26,9 @@ namespace Crud_mysql
             return connection;
         }
 
-        public static void AddStudent(menu std)
+        public static void AddStudent(Menu std)
         {
-            string sql = "INSERT INTO dishes VALUES (NULL, @DishesName, @DishesPrice)";
+            string sql = "INSERT INTO Dishes VALUES (NULL, @DishesName, @DishesPrice)";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
@@ -47,9 +47,9 @@ namespace Crud_mysql
             connection.Close();
         }
 
-        public static void UpdateStudent(menu std, string id)
+        public static void UpdateStudent(Menu std, string id)
         {
-            string sql = "UPDATE dishes SET DishName = @DishesName, Price = @DishesPrice  WHERE DishID = @DishID";
+            string sql = "UPDATE Dishes SET DishName = @DishesName, Price = @DishesPrice  WHERE DishID = @DishID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;
@@ -70,7 +70,7 @@ namespace Crud_mysql
 
         public static void DeleteStudent(string id)
         {
-            string sql = "DELETE FROM dishes WHERE DishID = @DishID";
+            string sql = "DELETE FROM Dishes WHERE DishID = @DishID";
             MySqlConnection connection = GetConnection();
             MySqlCommand cmd = new MySqlCommand(sql, connection);
             cmd.CommandType = System.Data.CommandType.Text;

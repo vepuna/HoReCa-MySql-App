@@ -10,14 +10,15 @@ namespace Crud_mysql
 {
     internal class TbDishIngredients
     {
-        public static string connectionString = "datasource=localhost;port=3306;username=root;password=;database=pizzeria";
+        public static string connectionString = "server=127.0.0.1;port=3306;user=root;password=root;database=pizzeria;";
+
         public static void LoadDishes(ComboBox comboBox1)
         {
             comboBox1.Items.Clear();
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT DishID, DishName FROM dishes";
+                string query = "SELECT DishID, DishName FROM Dishes";
                 var command = new MySqlCommand(query, connection);
                 using (var reader = command.ExecuteReader())
                 {
@@ -32,23 +33,22 @@ namespace Crud_mysql
                 }
                 connection.Close();
             }
-
         }
 
-        private static List<product> GetProductsFromDatabase()
+        private static List<Product> GetProductsFromDatabase()
         {
-            List<product> products = new List<product>();
+            List<Product> products = new List<Product>();
             using (var connection = new MySqlConnection(connectionString))
             {
                 connection.Open();
-                string query = "SELECT ProductID, Name, Quantity FROM Products"; 
+                string query = "SELECT ProductID, Name, Quantity FROM Products";
                 using (var command = new MySqlCommand(query, connection))
                 {
                     using (var reader = command.ExecuteReader())
                     {
                         while (reader.Read())
                         {
-                            products.Add(new product
+                            products.Add(new Product
                             {
                                 ProductID = reader.GetInt32("ProductID"),
                                 Name = reader.GetString("Name"),
@@ -110,8 +110,6 @@ namespace Crud_mysql
                     }
                 }
             }
-           
         }
-        }
-
-        }
+    }
+}

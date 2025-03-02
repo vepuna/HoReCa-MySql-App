@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Crud_mysql
 {
-    internal class product
+    internal class Product
     {
         public int ProductID { get; set; }
         public string Name { get; set; }

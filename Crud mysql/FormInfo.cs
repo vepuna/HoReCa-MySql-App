@@ -94,13 +94,13 @@ namespace Crud_mysql
             //////
             if (lbltext.Text == "Добавить в Склад")
             {
-                products std = new products (txtName.Text.Trim(), txtQuantity.Text.Trim());
+                Products std = new Products (txtName.Text.Trim(), txtQuantity.Text.Trim());
                 DbStudent.AddStudent(std);
                 Clear();
             }
             if(lbltext.Text == "Обновить Товар")
             {
-                products std = new products(txtName.Text.Trim(), txtQuantity.Text.Trim());
+                Products std = new Products(txtName.Text.Trim(), txtQuantity.Text.Trim());
                 DbStudent.UpdateStudent(std, id);
             }
             _parent.Display();
@@ -109,7 +109,7 @@ namespace Crud_mysql
             //new menu
             if (lbltext.Text == "Сохранить в меню")
             {
-                menu std = new menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
+                Menu std = new Menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
                 TbMenu.AddStudent(std);
                 Clear();
             }
@@ -117,7 +117,7 @@ namespace Crud_mysql
             //update menu
             if (lbltext.Text == "Update in Menu")
             {
-                menu std = new menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
+                Menu std = new Menu(txtName.Text.Trim(), txtQuantity.Text.Trim());
                 TbMenu.UpdateStudent(std, id);
                 Clear();
             }
